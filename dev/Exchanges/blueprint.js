@@ -22,7 +22,8 @@
 
 
 
-//maybe make a map to map token name from GLOBAL to address per respective object
+//can always make the stableWallet one wallet from the Arbitrage class, but having the ability
+//switch makes multiple exchanges on different platforms much easier
 
 
 

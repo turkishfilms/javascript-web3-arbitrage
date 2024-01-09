@@ -60,7 +60,7 @@ class Arbitrage {
     }
 
     buyToken(){
-        let buyAttempt = this.currExchange.buyToken(token, this.currentBalance.stable // minus fees);
+        let buyAttempt = this.currExchange.buyToken(this.currExchange.walletAddressToken, this.currentBalance.stable // minus fees);
         if(buyAttempt.success){
             this.previousBalances.token.push(this.currentBalance.token)
             this.currentBalance.token = buyAttempt.transactionData.//total amount bought
@@ -70,7 +70,7 @@ class Arbitrage {
     }
 
     swapToStable(){
-        let sellAttempt = this.currExchange.sellToken(token);
+        let sellAttempt = this.currExchange.sellToken(this.currExchange.walletAddressStable);
         if(sellAttempt.success){
             this.previousBalances.stable.push(this.currentBalance.stable)
             this.currentBalance.stable = buyAttempt.transactionData.//total amount sold
