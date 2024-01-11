@@ -9,21 +9,21 @@ import exchanges from './Exchanges/exchangeContainer'
 
 
 class Arbitrage {
-    constructor(exchanges, token, profitMarginGoal){
+    constructor(exchanges, token, profitMarginGoal) {
         this.exchanges = exchanges;
         this.token = TOKEN NAME //MUST FOLLOW GLOBAL NAMES
 
-        this.currentBalance = {token: [], stable: []}
-        this.previousBalances = {token:[], stable: []};
+        this.currentBalance = { token: [], stable: [] }
+        this.previousBalances = { token: [], stable: [] };
 
         this.currExchange = //initial find lowest price in exchanges exchanges[index]
-        this.targetExchange = //exchanges[index]
+            this.targetExchange = //exchanges[index]
 
-        this.profitMarginGoal = profitMarginGoal
+            this.profitMarginGoal = profitMarginGoal
 
     }
 
-    scanExchanges(exchanges){
+    scanExchanges(exchanges) {
 
         //scan the array of exchange objects and replace with price data
         const exchangePrices = array function to replace exchanges with exchange.getPrice(token)
@@ -31,52 +31,53 @@ class Arbitrage {
         return exchangePrices;
     }
 
-    getLowestExchangePrice(exchangePrices){
+    getLowestExchangePrice(exchangePrices) {
         const lowestExchangePrice = find lowest price in exchangePrices array
 
         return { price: lowestExchangePrice, targetExchange: index in this.exchanges }
     }
 
-    getHighestExchangePrice(exchangePrices){
+    getHighestExchangePrice(exchangePrices) {
         const highestExchangePrice = find highest price in exchangePrices array
 
         return { price: highestExchangePrice, targetExchange: index in this.exchanges }
     }
 
-    testProfitMargin(currExchange, targetExchange){
-        
+    testProfitMargin(currExchange, targetExchange) {
+
         const margin = (currExchange.getPrice(token) - currExchange.feeAverage)  math
-                        (targetExchange.getPrice(token) - targetExchange.feeAverage)
+        (targetExchange.getPrice(token) - targetExchange.feeAverage)
 
         return margin;
     }
 
-    sendToExchange(targetExchange){
-        let sendAttempt = currExchange.send(targetExchange.address)
-        if sendAttempt.success == true
+    sendToExchange(targetExchange) 
+            let token = targetExchange.address
+let sendAttempt = currExchange.send(targetExchange.address)
+if sendAttempt.success == true
             this.currExchange = targetExchange
 
-        return sendAttempt;
+return sendAttempt;
     }
 
-    buyToken(){
-        let buyAttempt = this.currExchange.buyToken(this.currExchange.walletAddressToken, this.currentBalance.stable // minus fees);
-        if(buyAttempt.success){
-            this.previousBalances.token.push(this.currentBalance.token)
-            this.currentBalance.token = buyAttempt.transactionData.//total amount bought
+buyToken(){
+    let buyAttempt = this.currExchange.buyToken(this.currExchange.walletAddressToken, this.currentBalance.stable // minus fees);
+        if (buyAttempt.success) {
+        this.previousBalances.token.push(this.currentBalance.token)
+        this.currentBalance.token = buyAttempt.transactionData.//total amount bought
 
         }
-        return buyAttempt;
-    }
+    return buyAttempt;
+}
 
-    swapToStable(){
-        let sellAttempt = this.currExchange.sellToken(this.currExchange.walletAddressStable);
-        if(sellAttempt.success){
-            this.previousBalances.stable.push(this.currentBalance.stable)
-            this.currentBalance.stable = buyAttempt.transactionData.//total amount sold
+swapToStable(){
+    let sellAttempt = this.currExchange.sellToken(this.currExchange.walletAddressStable);
+    if (sellAttempt.success) {
+        this.previousBalances.stable.push(this.currentBalance.stable)
+        this.currentBalance.stable = buyAttempt.transactionData.//total amount sold
 
         }
-        return sellAttempt;
-    }
+    return sellAttempt;
+}
 
 }
