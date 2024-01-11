@@ -28,56 +28,57 @@
 
 
 class nameOfExchange {
-    constructor(){
+    constructor() {
         this.feesAmount = //specifically calculate for each exchange with varying methods
-        this.token = //name of Token from GLOBAL list
-        this.walletAddressToken = //address of token. can be static or defined 
-        this.walletAddressStable = //address of stable coin on exchange. static or defined
-        this.tokenPrice = getPrice(this.token);
+            this.token = //name of Token from GLOBAL list
+            this.walletAddressToken = //address of token. can be static or defined 
+            this.walletAddressStable = //address of stable coin on exchange. static or defined
+            this.tokenPrice = getPrice(this.token);
         this.currentTokenAmount = getWalletBalance(this.walletAddressToken);
         this.currentStableAmount = getWalletBalance(this.walletAddressStable);
 
+
     }
-    getWalletBalance(address){
+    getWalletBalance(address) {
         //calculate the balance as int
         const balance =
 
         return balance(may need to figure out returning eth vs USD values);
     }
 
-    buyToken(walletAddressToken, amountInStable){
+    buyToken(walletAddressToken, amountInStable) {
         //buy the token with proper means, and then fill buyData based off transaction
-    
 
-        const buyData = {success: , transactionData: }
+
+        const buyData = { success: , transactionData: }
         return buyData;
     }
 
-    sellToken(walletAddressToken){
+    sellToken(walletAddressToken) {
         //sell the token with proper means, and then fill buyData based off transaction
         //use calculateFees() to sell max amount
-        
-        const sellData = {success: , transactionData: }
+
+        const sellData = { success: , transactionData: }
         return sellData;
     }
 
-    getPrice(walletAddress){
+    getPrice(walletAddress) {
         //collect price data
         const currentPrice =
 
         return currentPrice
     }
 
-    send(address){
+    send(address) {
         //send to the address the calculateFees value
 
 
 
-        const sendData = {success: , transactionData: }
+        const sendData = { success: , transactionData: }
         return sendData;
     }
 
-    calculateFees(){
+    calculateFees() {
         return this.currentTokenAmount - this.feesAmount;
     }
 }
