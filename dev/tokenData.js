@@ -1,5 +1,4 @@
-const tokenData = {
-}
+const tokenData = {}
 const exchanges = ["BINANCE", "COINBASE", "UNISWAP", "TRADERJOE"]
 const coins = ["ADA", "ETH", "BTC", "DOGE"]
 const randomCoins = ["AVAX", "UST", "SHIB"]
