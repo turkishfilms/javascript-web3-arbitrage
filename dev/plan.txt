@@ -11,15 +11,15 @@
 --TODO--
 get data
 build apis
-compare data functions
 get exchange list
 
-
---PROGRESS--
+--DONE--
 get coin list
 
+--PROGRESS--
 
---DONE--
+compare data functions
+
 
 
 
