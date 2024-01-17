@@ -42,8 +42,8 @@ class Arb {
     }
 
     sendToExchange(targetExchange) {
-        let token = targetExchange.address
-        let sendAttempt = currExchange.send(targetExchange.address)
+        let token = targetExchange.token.address
+        let sendAttempt = currExchange.send(targetExchange.token.address)
         if (sendAttempt.success == true) {
             this.currExchange = targetExchange
         }
