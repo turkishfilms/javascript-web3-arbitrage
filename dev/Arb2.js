@@ -16,7 +16,7 @@ class Arb {
     scanExchanges(exchanges) {
 
         //scan the array of exchange objects and replace with price data
-        const exchangePrices = array function to replace exchanges with exchange.getPrice(token)
+        const exchangePrices = exchanges + 'array function to replace exchanges with exchange.getPrice(token)'
 
         return exchangePrices;
     }
@@ -41,33 +41,34 @@ class Arb {
         return margin;
     }
 
-    sendToExchange(targetExchange) 
-            let token = targetExchange.address
-let sendAttempt = currExchange.send(targetExchange.address)
-if sendAttempt.success == true
+    sendToExchange(targetExchange) {
+        let token = targetExchange.address
+        let sendAttempt = currExchange.send(targetExchange.address)
+        if (sendAttempt.success == true) {
             this.currExchange = targetExchange
-
-return sendAttempt;
+        }
+        console.log(token)
+        return sendAttempt;
     }
 
-buyToken(){
-    let buyAttempt = this.currExchange.buyToken(this.currExchange.walletAddressToken, this.currentBalance.stable // minus fees);
+    buyToken() {
+        let buyAttempt = this.currExchange.buyToken(this.currExchange.walletAddressToken, this.currentBalance.stable) // minus fees);
         if (buyAttempt.success) {
-        this.previousBalances.token.push(this.currentBalance.token)
-        this.currentBalance.token = buyAttempt.transactionData.//total amount bought
+            this.previousBalances.token.push(this.currentBalance.token)
+            this.currentBalance.token = buyAttempt.transactionData//total amount bought
 
         }
-    return buyAttempt;
-}
+        return buyAttempt;
+    }
 
-swapToStable(){
-    let sellAttempt = this.currExchange.sellToken(this.currExchange.walletAddressStable);
-    if (sellAttempt.success) {
-        this.previousBalances.stable.push(this.currentBalance.stable)
-        this.currentBalance.stable = buyAttempt.transactionData.//total amount sold
+    swapToStable() {
+        let sellAttempt = this.currExchange.sellToken(this.currExchange.walletAddressStable);
+        if (sellAttempt.success) {
+            this.previousBalances.stable.push(this.currentBalance.stable)
+            this.currentBalance.stable = buyAttempt.transactionData.//total amount sold
 
         }
-    return sellAttempt;
-}
+        return sellAttempt;
+    }
 
 }
