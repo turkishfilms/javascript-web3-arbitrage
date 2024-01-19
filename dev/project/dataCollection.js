@@ -1,5 +1,7 @@
 import fs from 'fs'
-import { coinListURL, coinList, exchangeList } from './constants.js'
+import { coinBaseCoinListURL, coinList, exchangeList } from './constants.js'
+
+
 /**
  *This file is supposed to grab the coinLists and exchangeList and generate a file with relveant data
  *
@@ -9,7 +11,7 @@ import { coinListURL, coinList, exchangeList } from './constants.js'
  * **/
 
 function getAllCoins() {
-	fetch(coinListURL)
+	fetch(coinBaseCoinListURL)
 		.then(response => response.json())
 		.then(data => {
 			const coinIDS = data.map(coin => coin.id)
@@ -20,4 +22,6 @@ function getAllCoins() {
 		})
 }
 
-getAllCoins();
+// getAllCoins();
+
+function getExchange() { }
