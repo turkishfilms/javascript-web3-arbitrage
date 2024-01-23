@@ -16,19 +16,8 @@ const fetches = smallList.map(coin=>{
 
 Promise.all(fetches)
 	.then(()=>{
-		fs.readFile('tokenAddresses.js','utf8',(err,data)=>{
-			if(err) console.err(err)
-			const dude = JSON.parse(data)	
-			const newDude = {...dude,}
-			coinList.forEach(item=>{
-				newDude[item.token]=item.address	
-			})
-			console.log(newDude)
-
-
-		fs.writeFile(`CoinAddresses.js`,JSON.stringify(newDude),err=>{
+		fs.writeFile(`CoinAddresses.js`,JSON.stringify(coinList),err=>{
 			if(err)	console.err(err)
 		})
 	})
-})
 
