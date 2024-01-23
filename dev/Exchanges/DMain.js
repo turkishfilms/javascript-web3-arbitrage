@@ -1,4 +1,4 @@
-import  apis  from './APIs.js'
+import apis from './APIs.js'
 import axios from "axios"
 
 async function margins(coin){
