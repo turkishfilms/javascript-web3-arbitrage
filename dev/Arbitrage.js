@@ -52,7 +52,7 @@ class Arbitrage {
     }
 
     sendToExchange(targetExchange) 
-            let token = targetExchange.address
+        let token = targetExchange.address
 let sendAttempt = currExchange.send(targetExchange.address)
 if sendAttempt.success == true
             this.currExchange = targetExchange
