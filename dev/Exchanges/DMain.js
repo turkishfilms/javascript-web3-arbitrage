@@ -1,4 +1,4 @@
-import  apis  from './APIs.js'
+import  tokenAddresses from './tokenAddresses.js'
 import axios from "axios"
 
 async function margins(coin){
@@ -45,5 +45,6 @@ async function margins(coin){
       		console.error("Error fetching data:", error);
     	}
   	}
-let toby = margins(apis.WAVAX).then(response=>console.log(response))
-console.log("no way bro")
+
+	  let toby = margins(tokenAddresses.WAVAX).then(response=>console.log(response))
+	  let toby1 = margins(tokenAddresses.JOE).then(response=>console.log(response))
