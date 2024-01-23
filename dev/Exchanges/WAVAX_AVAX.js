@@ -22,6 +22,8 @@ class WAVAX_AVAX {
             const priceNative = pair.priceNative;
 
             tokenData.push({
+              pairDex: pair.dexId,
+              pairToken: pair.quoteToken.name,
               pairAddress: pairAddress,
               pairPriceUSD: priceNative,
             });
@@ -73,7 +75,7 @@ class WAVAX_AVAX {
 
   calculateProfitMargin(costPrice, sellingPrice) {
     let profitMargin = ((sellingPrice - costPrice) / costPrice) * 100;
-    return profitMargin.toFixed(2); // toFixed(2) limits the decimal places to two
+    return profitMargin.toFixed(3);
   }
 }
 
