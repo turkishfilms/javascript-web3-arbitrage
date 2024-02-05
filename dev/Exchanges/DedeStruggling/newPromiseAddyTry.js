@@ -21,3 +21,4 @@ function extract(coin) {
 	})
 }
 
+if (this.volume > 0) console.log("you suck")
